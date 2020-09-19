@@ -27,4 +27,29 @@ public class ConvetorController {
     	 logger.info("[ConvetorController] - Output is:" + output + " kelvin");
         return "Output is:" + output + " kelvin";
     }
+    
+    @GetMapping("/ktoc/{input}")
+    public String ktoc(@PathVariable("input") Double input) {
+    	logger.info("[ConvetorController] - Input is:" + input + " kelvin");
+    	 double output = convertorService.ctok(input);
+    	 logger.info("[ConvetorController] - Output is:" + output + " degrees celcius");
+        return "Output is:" + output + " degrees celcius";
+    }
+    
+    @GetMapping("/mtok/{input}")
+    public String mtok(@PathVariable("input") Double input) {
+    	logger.info("[ConvetorController] - Input is:" + input + " miles");
+    	 double output = convertorService.ctok(input);
+    	 logger.info("[ConvetorController] - Output is:" + output + " kilometers");
+        return "Output is:" + output + " kilometers";
+    }
+    
+    @GetMapping("/ktom/{input}")
+    public String ktom(@PathVariable("input") Double input) {
+    	logger.info("[ConvetorController] - Input is:" + input + " kilometers");
+    	 double output = convertorService.ctok(input);
+    	 logger.info("[ConvetorController] - Output is:" + output + " miles");
+        return "Output is:" + output + " miles";
+    }
+    
 }
